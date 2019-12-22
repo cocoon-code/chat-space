@@ -1,0 +1,18 @@
+.side_bar
+  .side_bar__user-name
+    .top_items
+      .top_items__name
+        kosuke
+      .top_item
+        =link_to "#", class: "top_item__btn" do
+          = icon('fas', 'edit',  class: "top_item--icon")
+          %span<>
+        =link_to "#", class: "top_item__btn" do
+          = icon('fas', 'cog',  class: "top_item--icon")
+          %span<>
+  .side_bar__group-list
+    =link_to "#", class: "group__btn" do
+      .group_title
+        techcamp
+      .latest_message
+        まだメッセージはありません
