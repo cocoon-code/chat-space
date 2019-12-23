@@ -6,15 +6,15 @@
         Member :kosuke
     .group_edit
       =link_to "#", class: "group_edit__btn" do
-        %span<>
         Edit
   .main_chat__message-list
-    .message_talker
-      %p kosuke
-      .message_date
-        %p 2019/12/22 15:00
-    .message_text
-      %p おはよう
+    - @messages.each do |message|
+      .message_talker
+        =message[:user]
+        .message_date
+          =message[:date]
+      .message_text
+        =message[:message]
   .main_chat__message-form
     %form.new_message
       .input_box

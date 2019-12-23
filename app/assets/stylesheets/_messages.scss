@@ -62,11 +62,11 @@
     display: flex;
     justify-content: space-between;
     .group_name{
-      color: #333333;
+      color: $black;
       font-size: 20px;
       padding-top: 35px;
       .group_member{
-        color: #999999;
+        color: $gray;
         font-size: 12px;
         padding-top: 15px;
       }
@@ -77,10 +77,10 @@
         width: 72px;
         height: 40px;
         text-decoration: none;
-        color: #38aef0;
+        color: $skyblue;
         font-size: 16px;
         line-height: 40px;
-        border: 1px solid #38aef0;
+        border: 1px solid $skyblue;
         padding: 12px 20px;
       }
     }
@@ -91,17 +91,17 @@
     padding: 35px 40px 35px 40px;
     .message_talker{
       font-size: 16px;
-      color: #333333;
+      color: $black;
       padding-bottom: 12px;
       .message_date{
         display: inline;
         font-size: 12px;
-        color: #999999;
+        color: $gray;
       }
     }
     .message_text{
       font-size: 14px;
-      color: #434A54;
+      color: $lightgray;
       padding-bottom: 46px;
     }
   }
@@ -120,7 +120,7 @@
           height: 50px;
           width: 100%;
           padding: 0 40px 0 10px;
-          color: #434a54;
+          color: $lightgray;
           border-style: none;
         }
         &_image{
@@ -137,7 +137,7 @@
         height: 50px;
         padding: 0 30px;
         margin-left: 15px;
-        background-color: #38aef0;
+        background-color: $skyblue;
         color: $white;
       }
     }
