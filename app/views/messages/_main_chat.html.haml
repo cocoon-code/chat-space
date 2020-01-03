@@ -1,25 +1,31 @@
 .main_chat
   .main_chat__group-info
     .group_name
-      test
+      = @group.name
       .group_member
-        Member :kosuke
+        ="Member: "
+        - @members.each do |member|
+          = "#{member.name}"
     .group_edit
-      =link_to "#", class: "group_edit__btn" do
+      =link_to edit_group_path(@group), class: "group_edit__btn" do
         Edit
   .main_chat__message-list
     - @messages.each do |message|
       .message_talker
-        =message[:user]
+        = message.user.name
         .message_date
-          =message[:date]
+          = message.user.created_at.strftime("%Y年%m月%d日 %H時%M分")
       .message_text
-        =message[:message]
+        - if message.content.present?
+          = message.content
+        - if message.image.present?
+          = image_tag message.image
   .main_chat__message-form
-    %form.new_message
-      .input_box
-        %input{type: "text", class:"input_box_text", placeholder:"type a message"}
-        %label{class: "input_box_image"}
-          =icon('fas', 'image')
-          %input{type: "file", class: "input_box_image_file"}
-      %input{type: "submit", class: "submit_btn"}
+    .new_message
+      = form_for [@group, @message] do |f|
+        .input_box
+          =f.text_field :content, class: 'input_box_text', placeholder: 'type a message'
+          = f.label :image, class: 'input_box_image' do
+            =icon('fas', 'image')
+            =f.file_field :image, class: 'input_box_image_file'
+        = f.submit 'Send', class: 'submit_btn'
