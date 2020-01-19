@@ -1,31 +1,5 @@
 $(function(){
-  function buildHTML(message){
-    if (message.image) {
-      var html = `<div class = "message_talker">
-                    ${message.user_name}
-                    <div class = "message_date">
-                      ${message.created_at}
-                    </div>
-                  </div>
-                  <div class = "message_text">
-                    ${message.content}
-                    <image src=${message.image}>
-                  </div>`
-                  return html;
-    } else {
-      var html = `<div class = "message_talker">
-                    ${message.user_name}
-                    <div class = "message_date">
-                      ${message.created_at}
-                    </div>
-                  </div>
-                  <div class = "message_text">
-                    ${message.content}
-                  </div>`
-                  return html;
-    };
-  }
-  var updataHTML = function(message) {
+  var buildHTML = function(message) {
     if (message.content && message.image) {
       var html = `<div class="message" data-message-id=` + message.id + `>` +
         `<div class="message_talker">` +
@@ -101,7 +75,7 @@ $(function(){
       if (messages.length != 0) {
         var insertHTML = '';
         $.each(messages, function(i, message){
-          insertHTML += updataHTML(message)
+          insertHTML += buildHTML(message)
         });
         $('.main_chat__message-list').append(insertHTML);
         $('.main_chat__message-list').animate({scrollTop: $('.main_chat__message-list')[0].scrollHeight});
