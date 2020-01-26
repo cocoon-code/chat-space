@@ -74,7 +74,7 @@ $(function(){
     .done(function(messages){
       if (messages.length !== 0) {
         var insertHTML = '';
-        $.each(messages, function(i, message){
+        $.each(messages, function(i, message) {
           insertHTML += buildHTML(message)
         });
         $('.main_chat__message-list').append(insertHTML);
