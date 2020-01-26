@@ -9,34 +9,34 @@ $(function(){
           `</div>` +
         `</div>` +
         `<div class="message_text">` +
-          message.content +
+          `<p>` + message.content + `</p>` +
           `<img src="` + message.image + `">` +
         `</div>` +
       `</div>`
-    } else if (message.content){
+    } else if (message.content) {
       var html = `<div class="message" data-message-id=` + message.id + `>` +
-      `<div class="message_talker">` +
-        message.user_name +
-        `<div class="message_date">` +
-          message.created_at +
+        `<div class="message_talker">` +
+          message.user_name +
+          `<div class="message_date">` +
+            message.created_at +
+          `</div>` +
         `</div>` +
-      `</div>` +
-      `<div class="message_text">` +
-        message.content +
-      `</div>` +
-    `</div>`
+        `<div class="message_text">` +
+        `<p>` + message.content + `</p>` +
+        `</div>` +
+      `</div>`
     } else if (message.image) {
       var html = `<div class="message" data-message-id=` + message.id + `>` +
-      `<div class="message_talker">` +
-        message.user_name +
-        `<div class="message_date">` +
-          message.created_at +
+        `<div class="message_talker">` +
+          message.user_name +
+          `<div class="message_date">` +
+            message.created_at +
+          `</div>` +
         `</div>` +
-      `</div>` +
-      `<div class="message_text">` +
-        `<img src="` + message.image + `">` +
-      `</div>` +
-    `</div>`
+        `<div class="message_text">` +
+          `<img src="` + message.image + `">` +
+        `</div>` +
+      `</div>`
     };
     return html;
   };
@@ -72,7 +72,7 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages){
-      if (messages.length != 0) {
+      if (messages.length !== 0) {
         var insertHTML = '';
         $.each(messages, function(i, message){
           insertHTML += buildHTML(message)
